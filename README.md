@@ -16,6 +16,6 @@ TBA
 
 ## Resources
 
-[Live Site](#)
+[Live Site](https://bureizu742.github.io/password-generator/)
 
-[Repository](#)
+[Repository](https://github.com/Bureizu742/password-generator)
