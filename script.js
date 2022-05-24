@@ -134,12 +134,19 @@ function generatePassword() {
       passCharAccepted = special;
     }
 
-    for (var i = 0; i < lengthInput; i++) {
+    //final password container
+    var finalPassword = [];
 
-    }
+    //randomizes characters within accepted character sets
+    for (var i = 0; i < lengthInput; i++) {
+      var randomCharacters = passCharAccepted[Math.floor(Math.random() * passCharAccepted.length)];
+      finalPassword.push(randomCharacters);
+    } return finalPassword.join("");
+  
+  //
   } else {
     alert("Please enter a valid length.");
-  }
+  } generatePassword();
 
   return "";
 }
