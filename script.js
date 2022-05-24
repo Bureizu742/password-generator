@@ -147,5 +147,5 @@ function generatePassword() {
   else {
     alert("Please enter a valid length.");
     return generatePassword();
-  } 
+  }
 }
