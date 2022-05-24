@@ -26,32 +26,36 @@ function generatePassword() {
   var numbers = "0123456789";
   var special = "#$%&()*+,-./:;<=>?";
 
-  var input = parseInt(prompt("Choose a lenght between 8 and 128"));
+  var lengthInput = parseInt(prompt("Choose a length between 8 and 128"));
 
 
-  if (input >= 8 && input <= 128) {
-    // GOOD CODE GOES HERE
-    var lowerInput = prompt("Use lowercase letters?");
-    var upperInput = prompt("Use uppercase letters?");
-    var numInput = prompt("Use numbers?");
-    var specialInput = prompt("Use special characters?");
-
+  if (lengthInput >= 8 && lengthInput <= 128) {
+    var lowerConfirm = confirm("Use lowercase letters?");
+    var upperConfirm = confirm("Use uppercase letters?");
+    var numConfirm = confirm("Use numbers?");
+    var specialConfirm = confirm("Use special characters?");
+    var passwordCharacters = "";
 
     if (
-      lowerInput.toLowerCase === "yes" ||
-      upperInput.toLowerCase === "yes" ||
-      numInput.toLowerCase === "yes" ||
-      specialInput.toLowerCase === "yes") {
-      //continue
-      
-    } else {
-      alert("Please select at least one character type.")
-    } return;
+      !lowerConfirm &&
+      !upperConfirm &&
+      !numConfirm &&
+      !specialConfirm) {
+      alert("Please select at least one character type.");
 
-  }
-  else {
-    alert("NOT COOL");
-  } return generatePassword();
+    } else if (
+      lowerConfirm ||
+      upperConfirm ||
+      numConfirm ||
+      specialConfirm) {
+
+      //continue generator
+      console.log("continue please");
+    }
+
+  } else {
+    alert("Please enter a valid length.");
+  } generatePassword();
 
   return "";
 }
