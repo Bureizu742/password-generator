@@ -1,11 +1,4 @@
-// Prompt for length between 8 and 128
-// prompt for upper, lower, numbers, and symbols
-// validate responses and ensure one character type is selected
-// generate password based on criteria
-// display in alert
-
 // Assignment Code
-
 // Add event listener to generate button
 var generateBtn = document.querySelector("#generate");
 generateBtn.addEventListener("click", writePassword)
@@ -20,14 +13,17 @@ function writePassword() {
 
 // Instructor Provided Template: Anthony Cooper
 function generatePassword() {
+  
+  //strings containing the characters to be used to later construct the password
   var lowercase = "abcdefghijklmnopqrstuvwxyz";
   var uppercase = lowercase.toUpperCase();
   var numbers = "0123456789";
   var special = "#$%&()*+,-./:;<=>?";
 
+  //accepts desired password length
   var lengthInput = parseInt(prompt("Choose a length between 8 and 128"));
 
-  //length input check
+  //length input check (else is on line 146)
   if (lengthInput >= 8 && lengthInput <= 128) {
     var lowerConfirm = confirm("Use lowercase letters?");
     var upperConfirm = confirm("Use uppercase letters?");
@@ -42,6 +38,7 @@ function generatePassword() {
       !numConfirm &&
       !specialConfirm) {
       alert("Please select at least one character type.");
+      return generatePassword();
     }
 
     //4 confirms
@@ -141,13 +138,14 @@ function generatePassword() {
     for (var i = 0; i < lengthInput; i++) {
       var randomCharacters = passCharAccepted[Math.floor(Math.random() * passCharAccepted.length)];
       finalPassword.push(randomCharacters);
-    } return finalPassword.join("");
+    } 
+    //outputs the final password, allowing it to be used outside the generatePassword function
+    return finalPassword.join("");
   
-  //
-  } else {
+  }
+  //returns to the top of the function if an invalid length was input
+  else {
     alert("Please enter a valid length.");
-  } generatePassword();
-
-  return "";
+    return generatePassword();
+  } 
 }
-
